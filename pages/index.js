@@ -1,7 +1,14 @@
 import exp from "constants";
 import Link from "next/link";
 import Layout from "../components/Layout";
-import { skills, experiences, projects } from "../profile";
+import {
+    skills,
+    experiences,
+    projects,
+    softSkills,
+    languages,
+    extraStudies,
+} from "../profile";
 
 const Index = () => (
     <Layout>
@@ -10,11 +17,11 @@ const Index = () => (
             <div className="col-md-12">
                 <div className="card card-body bg-secondary">
                     <div className="row">
-                        <div className="col-md-4">
+                        <div className="col-md-3">
                             <img
                                 src="Perfil.jpg"
                                 alt=""
-                                className="img-fluid"
+                                className="rounded mx-auto d-block mt-3"
                             />
                         </div>
                         <div className="col-md-8">
@@ -43,24 +50,29 @@ const Index = () => (
             <div className="col-md-4">
                 <div className="card bg-secondary">
                     <div className="card-body">
-                        <h1>Skills</h1>
-                        {skills
-                            .sort((a, b) => b.percentage >= a.percentage)
-                            .map(({ skill, percentage }, index) => (
-                                <div className="py-3" key={index}>
-                                    <h5>{skill}</h5>
-                                    <div className="progress">
-                                        <div
-                                            className="progress-bar bg-success"
-                                            role="progressbar"
-                                            style={{
-                                                width: `${percentage}%`,
-                                            }}
-                                        ></div>
-                                    </div>
-                                </div>
+                        Technical skills
+                        <ul className="list-group">
+                            {skills.map(({ skill }, index) => (
+                                <li
+                                    key={index}
+                                    className="list-group-item d-flex justify-content-between align-items-center list-hover"
+                                >
+                                    <h3>{skill}</h3>
+                                </li>
                             ))}
+                        </ul>
                     </div>
+                </div>
+                <div className="card bg-secondary mt-2 pe-4">
+                    <div className="card-body">Softs skills</div>
+                    <ul>
+                        {softSkills.map(({ name, description }, index) => (
+                            <li key={index}>
+                                <h3>{name}</h3>
+                                <p>{description}</p>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
             <div className="col-md-8">
@@ -73,7 +85,7 @@ const Index = () => (
                                 index
                             ) => (
                                 <li key={index}>
-                                    <h2>{title}</h2>
+                                    <h3>{title}</h3>
                                     <h5>
                                         {company} ({from}-{to})
                                     </h5>
@@ -83,36 +95,46 @@ const Index = () => (
                         )}
                     </ul>
                 </div>
-            </div>
-        </div>
-        {/** Portfolio */}
-        <div className="row">
-            <div className="col-md-12">
-                <div className="card card-body bg-dark">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <h1 className="text-center text-light">
-                                Portfolio
-                            </h1>
-                        </div>
-                        {projects.map(({ name, description, image }, index) => (
-                            <div className="col-md-4 p-2" key={index}>
-                                <div className="card h-100 bg-secondary">
-                                    <div className="overflow">
-                                        <img
-                                            className="card-img-top"
-                                            src={`/${image}`}
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div className="card-body">
-                                        <h3>{name}</h3>
-                                        <p>{description}</p>
-                                    </div>
-                                </div>
-                            </div>
+                <div className="card bg-secondary mt-2">
+                    <div className="card-body">Languages</div>
+                    <ul>
+                        {languages.map(({ name, level }, index) => (
+                            <li key={index}>
+                                <h4>
+                                    {name} - {level}
+                                </h4>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
+                </div>
+                <div className="card bg-secondary mt-2">
+                    <div className="card-body">Extra studies</div>
+                    <ul>
+                        {extraStudies.map(
+                            (
+                                {
+                                    name,
+                                    author,
+                                    credential,
+                                    start,
+                                    end,
+                                    description,
+                                },
+                                index
+                            ) => (
+                                <li key={index}>
+                                    <Link href={credential}>
+                                        <h4>{name}</h4>
+                                    </Link>
+                                    <h5>By: {author}</h5>
+                                    <p>
+                                        {start} - {end}
+                                    </p>
+                                    <p>{description}</p>
+                                </li>
+                            )
+                        )}
+                    </ul>
                 </div>
             </div>
         </div>

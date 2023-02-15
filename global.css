@@ -33,3 +33,12 @@ div#__next {
     border-top-color: green;
     border-left-color: #00bc8c;
 }
+
+ul {
+    list-style-type: none;
+}
+
+.list-hover:hover {
+    background-color: #00bc8c;
+    transition: all 1s ease-in-out;
+}

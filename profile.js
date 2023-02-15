@@ -54,3 +54,45 @@ export const projects = [
         image: "react-native.png",
     },
 ];
+
+export const softSkills = [
+    {
+        name: "Team work",
+        description:
+            "Good teamwork skills, taking the appropriate role at all times, along with respect and good treatment of colleagues",
+    },
+    {
+        name: "Communication",
+        description:
+            "Ability to communicate with a strong vocabulary and strong presence",
+    },
+    {
+        name: "Problem resolving",
+        description:
+            "Ability to solve and analyze problems both in groups and autonomously",
+    },
+];
+
+export const languages = [
+    {
+        name: "Spanish",
+        level: "Native",
+    },
+    {
+        name: "English",
+        level: "Intermediate",
+    },
+];
+
+export const extraStudies = [
+    {
+        name: "Java Programming Masterclass for Software Developers",
+        start: 2020,
+        end: 2020,
+        author: "Tim Buchalka",
+        description:
+            "Extensive course to learn the basics and advanced knowledge of Java ",
+        credential:
+            "https://www.udemy.com/certificate/UC-ae3d3468-915e-4e3d-971f-713e5cec8317/",
+    },
+];
