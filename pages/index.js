@@ -30,7 +30,7 @@ const Index = () => (
                             <h5>
                                 I am an advanced student of systems engineering
                                 (UNICEN). I consider myself an active person,
-                                good at soft skills and excel at socializing. I
+                                good at soft skills and great at socializing. I
                                 am eager to work and learn{" "}
                             </h5>
                             <Link
